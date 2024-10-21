@@ -4,6 +4,11 @@ namespace SachkovTech.SharedKernel.ValueObjects;
 
 public record FullName
 {
+    private FullName()
+    {
+        
+    }
+    
     private FullName(string firstName, string secondName)
     {
         FirstName = firstName;

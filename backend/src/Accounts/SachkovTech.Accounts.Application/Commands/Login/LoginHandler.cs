@@ -1,5 +1,6 @@
 using CSharpFunctionalExtensions;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using SachkovTech.Accounts.Contracts.Responses;
 using SachkovTech.Accounts.Domain;
@@ -28,7 +29,10 @@ public class LoginHandler : ICommandHandler<LoginResponse, LoginCommand>
     public async Task<Result<LoginResponse, ErrorList>> Handle(
         LoginCommand command, CancellationToken cancellationToken = default)
     {
-        var user = await _userManager.FindByEmailAsync(command.Email);
+        var user = await _userManager.Users
+            .Include(u => u.Roles)
+            .FirstOrDefaultAsync(u => u.Email == command.Email, cancellationToken);
+            
         if (user is null)
         {
             return Errors.General.NotFound().ToErrorList();

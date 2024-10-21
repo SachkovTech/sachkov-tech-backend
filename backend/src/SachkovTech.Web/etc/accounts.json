@@ -6,12 +6,20 @@
       "issues.update",
       "issues.delete",
       "solving.issues.read",
-      "solving.issues.send.on.review"
+      "solving.issues.send.on.review",
+      "accounts.add.role"
     ],
     "Student": [
       "issues.read",
       "solving.issues.read",
       "solving.issues.send.on.review"
+    ],
+    "Participant": [
+      "issues.read"
+    ],
+    "Support": [
+      "issues.read",
+      "solving.issues.read"
     ]
   },
   "Permissions": {
@@ -24,6 +32,9 @@
     "SolvingIssues": [
       "solving.issues.read",
       "solving.issues.send.on.review"
+    ],
+    "Accounts": [
+      "accounts.add.role"
     ]
   }
 }

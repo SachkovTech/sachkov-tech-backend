@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using SachkovTech.Accounts.Domain;
+using SachkovTech.Accounts.Infrastructure.DbContexts;
 
 namespace SachkovTech.Accounts.Infrastructure.IdentityManagers;
 

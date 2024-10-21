@@ -2,23 +2,24 @@ using SachkovTech.SharedKernel.ValueObjects;
 
 namespace SachkovTech.Accounts.Domain;
 
-public class AdminAccount
+public class ParticipantAccount
 {
-    public const string ADMIN = "Admin";
+    public const string PARTICIPANT = "Participant";
 
-    //ef core
-    private AdminAccount()
+    private ParticipantAccount()
     {
+        
     }
 
-    public AdminAccount(User user)
+    public ParticipantAccount(User user)
     {
         Id = Guid.NewGuid();
         User = user;
     }
-
+    
     public Guid Id { get; set; }
-
+    
     public Guid UserId { get; set; }
+    
     public User User { get; set; }
 }
