@@ -12,22 +12,26 @@ public class UserIssue : Entity<UserIssueId>
     //ef core
     private UserIssue(UserIssueId id) : base(id)
     {
-        
+
     }
     public UserIssue(
         UserIssueId id,
         UserId userId,
-        IssueId issueId) : base(id)
+        IssueId issueId,
+        ModuleId moduleId) : base(id)
     {
         UserId = userId;
         IssueId = issueId;
-        
+        ModuleId = moduleId;
+
         TakeOnWork();
     }
 
     public UserId UserId { get; private set; }
 
     public IssueId IssueId { get; private set; }
+
+    public ModuleId ModuleId { get; private set; }
 
     public IssueStatus Status { get; private set; }
 
@@ -78,7 +82,7 @@ public class UserIssue : Entity<UserIssueId>
             return Error.Failure("issue.status.invalid", "issue status should be at work");
 
         Status = IssueStatus.NotAtWork;
-        
+
         return Result.Success<Error>();
 
     }

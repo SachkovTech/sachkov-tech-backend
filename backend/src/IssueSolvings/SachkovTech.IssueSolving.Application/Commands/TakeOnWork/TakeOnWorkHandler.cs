@@ -49,7 +49,7 @@ public class TakeOnWorkHandler : ICommandHandler<Guid, TakeOnWorkCommand>
         {
             return Errors.General.ValueIsInvalid().ToErrorList();
         }
-        
+
         if (issueResult.Value.Position > 1)
         {
             var previousIssueResult = await _issuesContract
@@ -57,9 +57,9 @@ public class TakeOnWorkHandler : ICommandHandler<Guid, TakeOnWorkCommand>
 
             if (previousIssueResult.IsFailure)
                 return previousIssueResult.Error;
-        
+
             var previousUserIssue = await _readDbContext.UserIssues
-                .FirstOrDefaultAsync(u => u.UserId == command.UserId && 
+                .FirstOrDefaultAsync(u => u.UserId == command.UserId &&
                                           u.IssueId == previousIssueResult.Value.Id, cancellationToken);
 
             if (previousUserIssue is null)
@@ -74,12 +74,12 @@ public class TakeOnWorkHandler : ICommandHandler<Guid, TakeOnWorkCommand>
         var userIssueId = UserIssueId.NewIssueId();
         var userId = UserId.Create(command.UserId);
 
-        var userIssue = new UserIssue(userIssueId, userId, command.IssueId);
+        var userIssue = new UserIssue(userIssueId, userId, command.IssueId, command.ModuleId);
 
         var result = await _userIssueRepository.Add(userIssue, cancellationToken);
 
         await _unitOfWork.SaveChanges(cancellationToken);
-        
+
         _logger.LogInformation("User took issue on work. A record was created with id {userIssueId}",
             userIssueId);
 
