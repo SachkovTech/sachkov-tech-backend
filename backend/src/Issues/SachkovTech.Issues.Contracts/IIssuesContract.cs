@@ -12,4 +12,8 @@ public interface IIssuesContract
 
     Task<Result<IssueDto, ErrorList>> GetIssueByPosition(
         int position, CancellationToken cancellationToken = default);
+
+    Task<Result<IEnumerable<IssueResponse>, ErrorList>> GetIssuesByModuleId(
+        Guid moduleId, CancellationToken cancellationToken = default);
+
 }

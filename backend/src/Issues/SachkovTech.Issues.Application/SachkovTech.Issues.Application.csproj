@@ -1,17 +1,14 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-    </PropertyGroup>
-
-    <ItemGroup>
-      <ProjectReference Include="..\..\Files\SachkovTech.Files.Contracts\SachkovTech.Files.Contracts.csproj" />
-      <ProjectReference Include="..\..\Accounts\SachkovTech.Accounts.Contracts\SachkovTech.Accounts.Contracts.csproj" />
-      <ProjectReference Include="..\..\Shared\SachkovTech.Core\SachkovTech.Core.csproj" />
-      <ProjectReference Include="..\SachkovTech.Issues.Contracts\SachkovTech.Issues.Contracts.csproj" />
-      <ProjectReference Include="..\SachkovTech.Issues.Domain\SachkovTech.Issues.Domain.csproj" />
-    </ItemGroup>
-
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Files\SachkovTech.Files.Contracts\SachkovTech.Files.Contracts.csproj" />
+    <ProjectReference Include="..\..\Accounts\SachkovTech.Accounts.Contracts\SachkovTech.Accounts.Contracts.csproj" />
+    <ProjectReference Include="..\..\Shared\SachkovTech.Core\SachkovTech.Core.csproj" />
+    <ProjectReference Include="..\SachkovTech.Issues.Contracts\SachkovTech.Issues.Contracts.csproj" />
+    <ProjectReference Include="..\SachkovTech.Issues.Domain\SachkovTech.Issues.Domain.csproj" />
+  </ItemGroup>
 </Project>
